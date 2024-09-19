@@ -99,7 +99,7 @@ func (j *JobManager) checkParseErrors(jobResult JobWorkerResult) error{
 func (j *JobManager) notify(jobJson []byte) error{
 	err := j.RabbitMQ.Notify(
 		string(jobJson),
-		"applicaiton/json",
+		"application/json",
 		os.Getenv("RABBITMQ_NOTIFICATION_EX"),
 		os.Getenv("RABBITMQ_NOTIFICATION_ROUTING_KEY"),
 	)
