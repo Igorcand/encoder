@@ -49,7 +49,7 @@ func JobWorker(messageChannel chan amqp.Delivery, returnChan chan JobWorkerResul
 			continue
 		}
 
-		job.Video = jobService.Job.Video
+		job.Video = jobService.VideoService.Video
 		job.OutputBucketPath = os.Getenv("outputBucketName")
 		job.ID = uuid.NewV4().String()
 		job.Status = "STARTING"
