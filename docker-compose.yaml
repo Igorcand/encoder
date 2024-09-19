@@ -6,9 +6,25 @@ services:
     build: .
     volumes:
       - .:/go/src/
+    networks:
+      - rabbitmq_network
+  
+  db:
+    image: postgres:9.4
+    restart: always
+    tty: true
+    volumes:
+      - .pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=encoder
+    ports:
+      - "5432:5432"
       
-  rabbit:
+  rabbitmq:
     image: "rabbitmq:3-management"
+    container_name: rabbitmq
+    hostname: rabbitmq
     environment:
       RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
       RABBITMQ_DEFAULT_USER: "rabbitmq"
@@ -17,3 +33,9 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+    networks:
+      - rabbitmq_network
+
+networks:
+  rabbitmq_network:
+    driver: bridge
