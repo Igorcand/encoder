@@ -21,7 +21,7 @@ type RabbitMQ struct {
 
 func NewRabbitMQ() *RabbitMQ{
 	rabbitMQArgs := amqp.Table{}
-	rabbitMQArgs["x-dead-letter-exchange"] = os.Getenv("RABBITMQ_OLX")
+	rabbitMQArgs["x-dead-letter-exchange"] = os.Getenv("RABBITMQ_DLX")
 
 	rabbitMQ := RabbitMQ{
 		User: 				os.Getenv("RABBITMQ_DEFAULT_USER"),
@@ -38,7 +38,7 @@ func NewRabbitMQ() *RabbitMQ{
 }
 
 func (r *RabbitMQ) Connect() *amqp.Channel{
-	dsn := "ampq://" + r.User + ":" + r.Password + "@" + r.Host + ":" + r.Port + r.VHost
+	dsn := "amqp://" + r.User + ":" + r.Password + "@" + r.Host + ":" + r.Port + r.VHost
 	conn, err := amqp.Dial(dsn)
 	failOnError(err, "failed to connect to RabbitMQ")
 
@@ -104,7 +104,7 @@ func (r *RabbitMQ) Notify(message string, contentType string, exchange string, r
 
 func failOnError(err error, msg string){
 	if err != nil{
-		log.Fatalf("#{msg}: #{err}")
+		log.Fatalf("%s: %s", msg, err)
 	}
 }
 
