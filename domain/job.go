@@ -16,7 +16,7 @@ type Job struct{
 	Status 				string		`json:"status" valid:"notnull"`	
 	Video				*Video		`json:"video" valid:"-"`
 	VideoID				string		`json:"-" valid:"-" gorm:"column:video_id;type:uuid;notnull"`
-	Error 				string		`json:"-" valid:"-"`
+	Error 				string		`json:"error" valid:"-"`
 	CreatedAt			time.Time	`json:"created_at" valid:"-"`
 	UpdatedAt			time.Time	`json:"updated_at" valid:"-"`
 }
