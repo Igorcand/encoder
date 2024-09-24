@@ -57,7 +57,7 @@ func JobWorker(messageChannel chan amqp.Delivery, returnChan chan JobWorkerResul
 		}
 
 		job.Video = jobService.VideoService.Video
-		job.OutputBucketPath = os.Getenv("outputBucketName")
+		job.OutputBucketPath = os.Getenv("CLOUD_STORAGE_BUCKET_NAME")
 		job.ID = uuid.NewV4().String()
 		job.Status = "STARTING"
 		job.CreatedAt = time.Now()
