@@ -39,7 +39,6 @@ COPY .env .
 # RUN go mod download
 # 
 # # Compila o binário do Go
-# RUN go build -o /go/src/framework/cmd/server/server /go/src/framework/cmd/server/server.go || { echo "Build failed"; exit 1; }
 
 # Comando de entrada
-CMD ["go", "run", "/go/src/framework/cmd/server/server.go"]
+CMD ["go", "run", "/go/src/cmd/main.go"]

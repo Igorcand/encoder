@@ -2,7 +2,7 @@ package services
 
 import (
 	"encoder/domain"
-	"encoder/framework/utils"
+	"encoder/adapters/utils"
 	"encoding/json"
 	"os"
 	"sync"

@@ -1,7 +1,7 @@
 package utils_test
 
 import (
-	"encoder/framework/utils"
+	"encoder/adapters/utils"
 	"testing"
 	"github.com/stretchr/testify/require"
 )

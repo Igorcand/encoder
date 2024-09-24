@@ -3,7 +3,7 @@ package services
 import (
 	"encoder/application/repositories"
 	"encoder/domain"
-	"encoder/framework/queue"
+	"encoder/adapters/queue"
 	"encoding/json"
 	"log"
 	"os"

@@ -4,7 +4,7 @@ import (
 	"encoder/application/repositories"
 	"encoder/application/services"
 	"encoder/domain"
-	"encoder/framework/database"
+	"encoder/adapters/database"
 	"log"
 	"testing"
 	"time"

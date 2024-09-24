@@ -2,8 +2,8 @@ package main
 
 import (
 	"encoder/application/services"
-	"encoder/framework/database"
-	"encoder/framework/queue"
+	"encoder/adapters/database"
+	"encoder/adapters/queue"
 	"log"
 	"os"
 	"strconv"
